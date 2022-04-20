@@ -1,11 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_kit_ver1/data/api.dart';
 import 'package:flutter_kit_ver1/model/photo.dart';
 import 'package:flutter_kit_ver1/ui/login_screen.dart';
 import 'package:flutter_kit_ver1/ui/love_screen.dart';
 import 'package:flutter_kit_ver1/ui/widget/photo_widget.dart';
-import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,18 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final _controller = TextEditingController();
 
   List<Photo> _photos = [];
-
   // 빈 리스트로 초기화 하는 단계
-  Future<List<Photo>> fetch(String query) async {
-    final response = await http.get(Uri.parse(
-        'https://pixabay.com/api/?key=24806100-af9f83f3fdbb69c73da3e93f1&q=$query&image_type=photo&pretty=true'));
-
-    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-    // map 형태로 얻은 데이터는 Json 형태처럼 사용이 가능 해 진다.
-
-    Iterable hits = jsonResponse['hits'];
-    return hits.map((e) => Photo.fromJson(e)).toList();
-  }
 
   // controller 사용시에는 dispose 필수
   @override
