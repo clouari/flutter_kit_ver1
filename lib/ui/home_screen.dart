@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final api = PixabayApi();
   final _controller = TextEditingController();
 
   List<Photo> _photos = [];
@@ -81,7 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 suffixIcon: IconButton(
                   onPressed: () async {
                     // click 했을 때 하는 부분
-                    final photos = await fetch(_controller.text);
+                    final photos = await api.fetch(_controller
+                        .text); // fetch -> api.fetch 왜? 이젠 api 의 기능이다.
                     setState(() {
                       _photos = photos;
                     });
