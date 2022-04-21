@@ -20,7 +20,29 @@ class _LoveScreenState extends State<LoveScreen> {
         ),
         elevation: 0.0,
       ),
-      body: Container(),
+      body: _buildBody(context),
     );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: ListView(
+          children: [
+            _buildTitle(context),
+            // _buildSelectMenu(context),
+          ],
+        ));
+  }
+
+  Widget _buildTitle(BuildContext context) {
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.center, // 주 축 기준 중앙
+        crossAxisAlignment: CrossAxisAlignment.center, // 교차 축 기준 중앙
+        children: const <Widget>[
+          FlutterLogo(),
+          Text('Hello, Flutter Beginner!'),
+          Icon(Icons.sentiment_very_satisfied),
+        ]);
   }
 }
