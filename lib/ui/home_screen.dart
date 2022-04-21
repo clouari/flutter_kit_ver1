@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(16),
               itemCount: _photos.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // 2열짜리
+                crossAxisCount: 4, // 2열 -> 4열로 변경
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
               ),
